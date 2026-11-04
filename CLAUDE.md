@@ -66,7 +66,8 @@ build environment). Upload a couple of photos after the first deploy to confirm.
 
 ## To do
 
-- Create the Supabase project (London region), run `001_products.sql` and `002_shop_settings.sql`
+- Done 4 Nov 2026: Supabase project created (ap-southeast-1) and `001_products.sql` + `002_shop_settings.sql` applied
+  via `npm run db:migrate` (no seed data). Remaining:
   (and `seed.sql` if wanted), deploy this app to Vercel with the env vars, set the same `DATABASE_URL` and
   `REVALIDATE_SECRET` in the shop's Vercel project.
 - Orders/customers once Stripe checkout exists in the shop. Optional: read-only database role for the shop.
