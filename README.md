@@ -3,7 +3,7 @@
 The private back office for the Studio Batik shop. Add and edit products, set prices and stock per size,
 and upload photos. Changes appear in the shop straight away.
 
-It is a separate Next.js app from the shop (`../studio-batik`). Both use the same Supabase database:
+It is a separate Next.js app from the shop (`../batikuk`). Both use the same Supabase database:
 this app writes to it, the shop only reads from it.
 
 | | |
@@ -35,13 +35,13 @@ The photo bucket (`product-images`, public) is created automatically on the firs
 ### 2. Run it on your Mac
 
 ```bash
-cd ~/Downloads/studio-batik-admin
+cd ~/Documents/GitHub/batikadmin
 cp .env.example .env.local      # then fill in the values
 npm install
 npm run dev                     # http://localhost:3001
 ```
 
-Run the shop at the same time in another terminal (`cd ../studio-batik && npm run dev`, http://localhost:3000)
+Run the shop at the same time in another terminal (`cd ../batikuk && npm run dev`, http://localhost:3000)
 and set `STORE_URL=http://localhost:3000` here so saves refresh it.
 
 Without the two Supabase storage settings, photos are kept in `.local-uploads/` on your Mac for testing.

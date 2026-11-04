@@ -3,14 +3,14 @@
 # Studio Batik Admin
 
 The private back office for the Studio Batik shop. Business, brand and market context is in
-`../studio-batik/CLAUDE.md` — read that too. This file covers the admin app.
+`../batikuk/CLAUDE.md` — read that too. This file covers the admin app.
 
 ## What it is
 
 - A **separate Next.js app** (Darshan wanted it apart from the shop, not at `/admin`), deployed to its own
   free `*.vercel.app` address (e.g. `studio-batik-admin.vercel.app`) for Darshan and his partner.
 - Both apps share one **Supabase** database: this app writes products, stock, photos and settings;
-  the shop (`../studio-batik`) only reads.
+  the shop (`../batikuk`) only reads.
 - Sign-in: one shared **secret key** (`ADMIN_PASSWORD`, 12+ chars). Signed HMAC session cookie (7 days),
   checked in `src/proxy.ts` **and** in every page and server action (`requireAdmin()`), because Next 16
   proxy alone doesn't cover server actions. Wrong keys are delayed ~0.9 s. Hidden from search engines.
