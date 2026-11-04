@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* Same navy and gold as the shop (studio-batik/src/app/globals.css) */
+@theme {
+  --color-white: #ffffff;
+  --color-ink: #141a2b;
+  --color-brand: #0f1f44;
+  --color-brand-deep: #0a1530;
+  --color-gold-light: #f7d287;
+  --color-gold: #e4ac56;
+  --color-gold-shadow: #c48732;
+  --color-gold-deep: #7a5214;
+  --color-silk: #fbf3e0;
+  --color-line: #e7e2d6;
+  --color-canvas: #f7f6f2;
+  --color-ok: #1f6b45;
+  --color-ok-soft: #e3f2e9;
+  --color-warn: #8a5300;
+  --color-warn-soft: #fdf0d8;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+
+  --font-display: var(--font-gloock), Georgia, serif;
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+}
+
+@utility bg-satin {
+  background-color: var(--color-gold);
+  background-image:
+    radial-gradient(90% 60% at 78% 8%, rgb(250 218 152 / 0.85), transparent 60%),
+    linear-gradient(118deg, #c48732 0%, #e4ac56 14%, #fada98 28%, #eabb6a 42%, #f7d287 57%, #d49840 75%, #f2c779 100%);
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Shared form and button styles. In the components layer so utility classes
+   (like pl-7 on the price field) can still adjust them. */
+@layer components {
+  .field {
+    width: 100%;
+    border-radius: 0.6rem;
+    border: 1px solid #c9c4b8;
+    background: white;
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem; /* 16px stops iPhone Safari zooming in on focus */
+    line-height: 1.4;
+  }
+  .field:focus {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 0;
+    border-color: var(--color-brand);
+  }
+  .field[aria-invalid="true"] {
+    border-color: var(--color-danger);
+  }
+
+  .btn {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.6rem 1.15rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--color-brand);
+    color: var(--color-gold-light);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-brand-deep);
+  }
+  .btn-secondary {
+    border: 1px solid #c9c4b8;
+    background: white;
+    color: var(--color-ink);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    border-color: var(--color-brand);
+  }
+  .btn-danger {
+    border: 1px solid color-mix(in srgb, var(--color-danger) 40%, white);
+    background: white;
+    color: var(--color-danger);
+  }
+  .btn-danger:hover:not(:disabled) {
+    background: var(--color-danger-soft);
+  }
+
+  .card {
+    border-radius: 1rem;
+    border: 1px solid var(--color-line);
+    background: white;
+  }
+}
